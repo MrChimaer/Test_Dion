@@ -1,11 +1,9 @@
-import org.openqa.selenium.By;
-
 import static com.codeborne.selenide.Selenide.*;
 
 public class Authorization {
 
 
-    public static void loginWith(User user) {
+    public static void execute(User user) {
         open("https://frontend-test.dev.dion.vc/");
         $x("//button[contains(text(),'Войти')]").click();
         $x("//input[@name='email']").val(user.email);
