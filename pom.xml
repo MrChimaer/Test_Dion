@@ -49,5 +49,14 @@
             <version>2.13.3</version>
         </dependency>
 
+
+        <!-- https://mvnrepository.com/artifact/com.qaprosoft/browsermobproxy -->
+        <dependency>
+            <groupId>net.lightbody.bmp</groupId>
+            <artifactId>browsermob-core</artifactId>
+            <version>2.1.5</version>
+            <scope>compile</scope>
+        </dependency>
+
     </dependencies>
 </project>

@@ -1,6 +1,4 @@
-import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.Driver;
-import com.codeborne.selenide.SelenideTargetLocator;
+import com.codeborne.selenide.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -12,19 +10,23 @@ public class Cookie {
 
 
     public static void check() {
-        WebDriver driver = new ChromeDriver();
-        SelenideTargetLocator selenideTargetLocator = switchTo();
+        SelenideDriver driver = new SelenideDriver(new SelenideConfig());
+
         open("https://frontend-test.dev.dion.vc/");
         clearBrowserCookies();
         refresh();
         $x("//a[@id='go-to-policy']").is(Condition.interactable);
         $x("//a[@id='go-to-policy']").click();
-        if (driver.getCurrentUrl() == policy_URL) {
-            $x("//h4[contains(text(),'Политика конфиденциальности сервиса «DION»')]");
-        }
+
+        $x("//h4[contains(text(),'Политика конфиденциальности сервиса «DION»')]");
+        Selenide.switchTo().window(1);
+
+//        for (String tab: driver.getWindowHandles()){driver.switchTo().window(tab);}
         $x("//a[@href='" + policy_Agreement + "']").click();
+        Selenide.switchTo().window(2);
         $x("//a[@id='back-link']").click();
-        selenideTargetLocator.window(0);
+
+        Selenide.switchTo().window(0);
         $x("//button[@id='cookie-accept']").click();
         $x("//button[@id='cookie-accept']").is(Condition.disabled);
     }
