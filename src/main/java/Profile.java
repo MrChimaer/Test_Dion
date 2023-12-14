@@ -19,6 +19,9 @@ public class Profile {
     }
 
     public static void joinMyRoom(int roomNumber){
+        if ($x("//button[contains(text(),'Хорошо')]").isDisplayed()){
+            $x("//button[contains(text(),'Хорошо')]").click();
+        }
         $x(String.format("//a[@id='my-room-%s']", roomNumber)).click();
         $x("//button[@id='connect-to-call']").click();
         $x("//div[@id='call_success']").exists();

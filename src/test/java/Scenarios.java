@@ -35,7 +35,7 @@ public class Scenarios {
 
     }
     private static final String URL = "https://api-clients-test.dev.dion.vc/";
-    User user = new User("user534@test.ru", "name", "surname");
+    User user = new User("user1@test.ru", "name", "surname");
     User existingUser = new User ("user1@test.ru", "name", "surname");
     User wrongUser = new User ("user696@test.ru", "wrong", "wrong");
 
